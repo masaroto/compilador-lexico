@@ -1,10 +1,12 @@
 import re
 import os
 
-path = "exemplos/maior.ilp"
+path1 = "exemplos/maior.ilp"
+path2 = "exemplos/soma.ilp"
+path3 = "exemplos/temperatura.ilp"
 
-if os.path.isfile(path):
-    file = open(path, "r")
+if os.path.isfile(path3):
+    file = open(path3, "r")
     txt = str(file.read())
     file.close()
 
@@ -22,6 +24,8 @@ var = re.compile(r'^VAR')
 se = re.compile(r'^IF')
 ent = re.compile(r'^ELSE')
 the = re.compile(r'^THEN')
+to = re.compile(r'^TO')
+do = re.compile(r'^DO')
 num = re.compile(r'^[\d]+[,\d+]?')
 ident = re.compile(r'^[a-zA-Z][a-zA-Z0-9]*')
 op_arit = re.compile(r'^\*|^\/|^\+|^\-')
@@ -33,13 +37,15 @@ fecha_parent = re.compile(r'^\)')
 nome_regra = ["pro", "wri", "end", "beg",
               "pv", "doisp", "vir",
               "var", "num", "se", "ent", "the",
+              "to", "do",
               "ident", "op_arit", "op_rel",  
               "abre_paren", "fecha_parent", "tipo"]
 
               
 regras = [pro, wri, end, beg, 
           pv,doisp, vir, 
-          var, tipo, se, ent, the,
+          var, num, se, ent, the,
+          to, do,
           ident, op_arit, op_rel, 
           abre_paren, fecha_parent, tipo]
 
