@@ -128,6 +128,7 @@ def Lexer(src_code):
                 position = m.start()
             else:
                 break
+                
         m = regex.match(buffer, position)
 
         if m:
