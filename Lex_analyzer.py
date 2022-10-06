@@ -22,7 +22,7 @@ def select_arq():
 
     print("===========================================")
     print("Digite o número correspondente ao arquivo que deseja carregar:\n")
-    filenames = next(os.walk(os.path.dirname(__file__) + path_dir), (None, None, []))[2]
+    filenames = next(os.walk(os.getcwd() + path_dir), (None, None, []))[2]
     files = [ file for file in filenames if file.endswith((".ilp", ".ILP")) ]
 
     if len(files) == 0:
@@ -37,7 +37,7 @@ def select_arq():
         print("\nEsta opção não existe, digite novamente.")
         index = input("\n")
 
-    path_file = os.path.dirname(__file__) + path_dir + files[int(index)]
+    path_file = os.getcwd() + path_dir + files[int(index)]
 
     if os.path.isfile(path_file):
         file = open(path_file, "r")
@@ -105,6 +105,8 @@ def Lexer(src_code):
     # Removendo comentário
     buffer = re.sub("//.*[\n]", "", buffer)
         
+    # Dividindo regex em grupos
+ 
     for type, regex in rules:
         groupname = 'GROUP%s' % aux
         regex_parts.append('(?P<%s>%s)' % (groupname, regex))
@@ -135,8 +137,10 @@ def Lexer(src_code):
             position = m.end()
             tokens.append(tok)
         else:
-            raise SyntaxError("Caractere " + buffer[position] +
-            " na posição %s não é permitido." % (position))
+            print("==================================================\n")
+            print("ERRO: Caractere " + buffer[position] +
+            " na posição %s não é permitido.\n" % (position))
+            sys.exit()
 
     return tokens
         
