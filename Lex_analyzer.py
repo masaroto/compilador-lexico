@@ -6,13 +6,12 @@ path_dir = "/exemplos/"
 
 
 class Token(object):
-    """ A simple Token structure.
-        Contains the token type, value and position.
-    """
+    # Objeto token
+    
     def __init__(self, type, val, pos):
-        self.type = type
-        self.val = val
-        self.pos = pos
+        self.type = type # Token name
+        self.val = val # Token valor (lexema)
+        self.pos = pos # Posição em que o lexema foi encontrado no arq.
 
     def __str__(self):
         return '(%s, %s)' % (self.type, self.val)
