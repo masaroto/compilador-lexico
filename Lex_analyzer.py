@@ -70,9 +70,15 @@ rules = [
 
     # Operadores
     
+<<<<<<< HEAD
     ("op_arit"   ,'\*|\/'),
     ("MaiorMenor", '\+|\-'),
     ("op_rel"    ,'\:\=|\<\>|\<|\<\=|\>\=|\>'),
+=======
+    ("op_arit"   ,'\*|\/|\+|\-'),
+    ("op_rel"    ,'\=|\<\>|\<\=|\<|\>\=|\>'),
+    ("atrib"     ,':\='),
+>>>>>>> 5a499bccac9c6dec9c3bfb390e90cf7371b199f7
     
     # Identificador 
     
@@ -123,12 +129,12 @@ def Lexer(src_code):
             break
         else:
             # Ignorando espaços em branco
-            m = re.compile('\S').search(buffer, position)
+            m = re.compile('\S').search(buffer, position);
             if m:
                 position = m.start()
             else:
                 break
-
+                
         m = regex.match(buffer, position)
 
         if m:
