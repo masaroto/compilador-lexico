@@ -70,15 +70,9 @@ rules = [
 
     # Operadores
     
-<<<<<<< HEAD
     ("op_arit"   ,'\*|\/'),
     ("MaiorMenor", '\+|\-'),
     ("op_rel"    ,'\:\=|\<\>|\<|\<\=|\>\=|\>'),
-=======
-    ("op_arit"   ,'\*|\/|\+|\-'),
-    ("op_rel"    ,'\=|\<\>|\<\=|\<|\>\=|\>'),
-    ("atrib"     ,':\='),
->>>>>>> 5a499bccac9c6dec9c3bfb390e90cf7371b199f7
     
     # Identificador 
     
